@@ -1,0 +1,86 @@
+<html>
+<head>
+<style>
+
+form{
+
+  padding-top:100px;
+
+  margin:0 auto;
+
+  width:218px;
+
+}
+</style>
+
+<title>Adivinhe o Número</title>
+<meta name="author" content="Arthur Alves">
+<script type="text/javascript">
+
+var numero = Math.floor(Math.random() * 20 + 1);
+var tentativas = 1;
+var digitado = '';
+
+window.onload = function() {
+
+  document.formulario.entrada.focus();
+
+};
+
+
+function testaNumero() {
+
+  digitado = document.formulario.entrada.value;
+
+
+  if (numero != digitado) {
+
+   if (numero < digitado) {
+
+    digitado = alert('O número é MENOR que ' + digitado);
+
+   } else {
+
+    digitado = alert('O número é MAIOR que ' + digitado);
+
+   }
+
+   document.formulario.entrada.value = '';
+
+   tentativas++;
+
+   return false;
+
+  } else {
+
+   alert('Parabéns, o número era ' + numero + '.\nVocê usou ' + tentativas + ' tentativas.')
+
+  }
+
+}
+
+
+</script>
+
+</head>
+
+<body>
+
+<form onsubmit="return testaNumero();" name="formulario">
+
+  <fieldset>
+
+   <label>Adivinhe o número que estou pensando entre 0 e 20.</label><br/><br/>
+
+   <input type="text" name="entrada" />
+
+   <input type="submit" value="OK" />
+   <p> Autor: Arthur Alves</p>
+
+  </fieldset>
+
+</form>
+
+</body>
+
+</html>
